@@ -13,30 +13,18 @@ const lookup = {
 function rot13(encodedStr){
    let decodedArr = []; // Your Result goes here
   // Only change code below this line
-for (var i = 0; i < str.length; i++) {
-    var charCode = str.charCodeAt(i);
-
-    // Decode uppercase letters
-    if (charCode >= 65 && charCode <= 90) {
-      decodedStr += String.fromCharCode(((charCode - 65 + 13) % 26) + 65);
-    }
-    // Decode lowercase letters
-    else if (charCode >= 97 && charCode <= 122) {
-      decodedStr += String.fromCharCode(((charCode - 97 + 13) % 26) + 97);
-    }
-    // Preserve non-alphabetic characters
-    else {
-      decodedStr += str.charAt(i);
-    }
-  }
-
-  return decodedStr;
+	let str="";
+	for(let i=0;i<encodedStr.length;i++){
+		if(lookup[encodedStr[i]===undefined){
+			str+=encodedStr[i]
+		}
+		else{
+			str+=lookup[encodedStr[i]]
+		}
+	}
+	decodedArr.push(str);
+	return decodedArr;
 }
-  //return ;//return decodedArr
-//}
-
-// You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
-
 // console.log(rot13("SERR YBIR? NPPVBWBO"));
 
 module.exports = rot13;
